@@ -43,7 +43,8 @@ public class LoginGUI extends JFrame {
 		textField.setColumns(10);
 		
 		account a = new account();
-		a.setAccount(textField.getText());
+//		a.setAccount(textField.getText());
+//		System.out.println(textField.getText());
 		
 		JLabel lblNewLabel_2 = new JLabel("Password");
 		lblNewLabel_2.setBounds(93, 132, 61, 16);
@@ -54,7 +55,7 @@ public class LoginGUI extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		a.setPassword(textField_1.getText());
+//		a.setPassword(textField_1.getText());
 		
 		JLabel lblNewLabel_3 = new JLabel("System will create the account automatically for you if you have not visited before");
 		lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
@@ -64,18 +65,21 @@ public class LoginGUI extends JFrame {
 		JButton btnNewButton = new JButton("LOGIN");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().isEmpty()) {
-					MainGUI main = new MainGUI();
-					main.show();
-				}else if(textField.getText().equals("a")){
-					FailLoginGUI faillogin = new FailLoginGUI();
-					faillogin.show();						
-				}else if(textField.getText().equals("b")) {
+				String username = textField.getText();
+				String pwd = textField_1.getText();
+
+				System.out.println(username);
+				System.out.println(pwd);
+				Integer result = a.login(username, pwd);
+				if (result == 1) {
 					GenderGUI create = new GenderGUI();
 					create.show();
-				}else{
+				} else if (result == 2) {					
 					WelcomeGUI welcomepage = new WelcomeGUI();
-					welcomepage.show();			
+					welcomepage.show();		
+				} else if (result == 3) {
+					FailLoginGUI faillogin = new FailLoginGUI();
+					faillogin.show();	
 				}
 			}
 		});

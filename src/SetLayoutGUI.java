@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class FeedingBeefGUI extends JFrame {
+public class SetLayoutGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -24,12 +24,7 @@ public class FeedingBeefGUI extends JFrame {
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
 
-
-
-	/**
-	 * Create the frame.
-	 */
-	public FeedingBeefGUI() {
+	public SetLayoutGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
