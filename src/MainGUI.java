@@ -1,7 +1,9 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -20,6 +22,11 @@ public class MainGUI extends JFrame {
 	private JButton btnexit;
 	private JButton btnBack;
 	
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JTextField textField;
+	private JTextField textField_1;
+	
 
 	public MainGUI() {
 
@@ -30,6 +37,7 @@ public class MainGUI extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.ORANGE);
 		
 		btnfeeding = new JButton("Feeding");
 		btnfeeding.addActionListener(new ActionListener() {
@@ -51,7 +59,7 @@ public class MainGUI extends JFrame {
 		
 		btnplaying = new JButton("Playing");
 		btnplaying.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {		
 				showplaying();
 			}
 		});
@@ -77,9 +85,30 @@ public class MainGUI extends JFrame {
 		contentPane.add(btnexit);
 		
 		JLabel lblNewLabel = new JLabel("Interact With Your Pet");
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		lblNewLabel.setBounds(60, 17, 349, 47);
+		lblNewLabel.setFont(new Font("Libian SC", Font.PLAIN, 29));
+		lblNewLabel.setBounds(20, 24, 243, 47);
 		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_3 = new JLabel("Hunger ");
+		lblNewLabel_3.setToolTipText("");
+		lblNewLabel_3.setBounds(289, 22, 61, 16);
+		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Happy");
+		lblNewLabel_4.setBounds(289, 50, 61, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		textField = new JTextField();
+		textField.setText("100 / 100");
+		textField.setBounds(354, 20, 78, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setText("100 / 100");
+		textField_1.setBounds(354, 45, 78, 26);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 		
 //		btnBack = new JButton("BACK");
 //		btnBack.addActionListener(new ActionListener() {
@@ -91,21 +120,25 @@ public class MainGUI extends JFrame {
 	}
 	
 	public void showplaying() {
+		this.setVisible(false);
 		playGUI playing= new playGUI();
 		playing.show();
 	}
 	
 	public void showpetting() {
+		this.setVisible(false);
 		PetGUI petting = new PetGUI();
 		petting.show();
 	}
 	
 	public void showwalking() {
+		this.setVisible(false);
 		WalkingGUI walking = new WalkingGUI();
 		walking.show();	
 	}
 	
 	public void showfeeding() {
+		this.setVisible(false);
 		FeedingGUI feeding = new FeedingGUI();
 		feeding.show();
 		

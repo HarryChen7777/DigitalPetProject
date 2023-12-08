@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
@@ -15,11 +16,14 @@ public class PetGUI extends JFrame {
 
 	
 	private JPanel contentPane;
-	private JTextField txtPlaying;
-	private JTextField txtpetted;
 	private JTextField txtIncreased;
-	private JTextField hungermeter;
-	private JTextField happymeter;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	
 	public PetGUI() {
@@ -33,55 +37,57 @@ public class PetGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtPlaying = new JTextField();
-		txtPlaying.setBackground(Color.ORANGE);
-		txtPlaying.setFont(new Font("Libian SC", Font.PLAIN, 30));
-		txtPlaying.setText("Playing\n");
-		txtPlaying.setBounds(24, 20, 98, 32);
-		contentPane.add(txtPlaying);
-		txtPlaying.setColumns(10);
-		
-		txtpetted = new JTextField();
-		txtpetted.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		txtpetted.setBackground(Color.ORANGE);
-		txtpetted.setText("You have petted your Pet !!! ");
-		txtpetted.setBounds(123, 77, 214, 67);
-		contentPane.add(txtpetted);
-		txtpetted.setColumns(10);
-		
 		JButton btnBack = new JButton("BACK");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainGUI mgui = new MainGUI();
-				mgui.show();
+				showmain();
 			}
 		});
 		btnBack.setForeground(Color.BLACK);
 		btnBack.setBounds(6, 237, 117, 29);
 		contentPane.add(btnBack);
 		
-		txtIncreased = new JTextField();
-		txtIncreased.setText("The Happy meter increased by 20!!!");
-		txtIncreased.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		txtIncreased.setColumns(10);
-		txtIncreased.setBackground(Color.ORANGE);
-		txtIncreased.setBounds(104, 134, 247, 67);
-		contentPane.add(txtIncreased);
+		lblNewLabel = new JLabel("PETTING");
+		lblNewLabel.setFont(new Font("Libian TC", Font.PLAIN, 30));
+		lblNewLabel.setBounds(19, 6, 130, 42);
+		contentPane.add(lblNewLabel);
 		
-		hungermeter = new JTextField();
-		hungermeter.setBackground(Color.ORANGE);
-		hungermeter.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		hungermeter.setText("Hunger meter    /100\n");
-		hungermeter.setBounds(314, 9, 130, 26);
-		contentPane.add(hungermeter);
-		hungermeter.setColumns(10);
+		lblNewLabel_1 = new JLabel("You have petted your pet!");
+		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(88, 102, 356, 29);
+		contentPane.add(lblNewLabel_1);
 		
-		happymeter = new JTextField();
-		happymeter.setBackground(Color.ORANGE);
-		happymeter.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		happymeter.setText("Happy meter    /100");
-		happymeter.setColumns(10);
-		happymeter.setBounds(314, 30, 130, 26);
-		contentPane.add(happymeter);
+		lblNewLabel_2 = new JLabel("Happy Meter increased by 20");
+//		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
+		lblNewLabel_2.setBounds(112, 143, 307, 36);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Hunger ");
+		lblNewLabel_3.setToolTipText("");
+		lblNewLabel_3.setBounds(289, 22, 61, 16);
+		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Happy");
+		lblNewLabel_4.setBounds(289, 50, 61, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		textField = new JTextField();
+		textField.setText("100 / 100");
+		textField.setBounds(354, 20, 78, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setText("100 / 100");
+		textField_1.setBounds(354, 45, 78, 26);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+	}
+	
+	public void showmain() {
+		this.setVisible(false);
+		MainGUI mgui = new MainGUI();
+		mgui.show();
 	}
 }
+

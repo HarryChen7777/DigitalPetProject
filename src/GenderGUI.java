@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ public class GenderGUI extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.ORANGE);
 		
 		JLabel lblNewLabel = new JLabel("Let's Create Your Pet");
 		lblNewLabel.setFont(new Font("Libian SC", Font.PLAIN, 30));
@@ -55,11 +57,16 @@ public class GenderGUI extends JFrame {
 		JButton btnNewButton = new JButton("CONTINUE");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainGUI main = new MainGUI();
-				main.show();
+				showmain();
 			}
 		});
 		btnNewButton.setBounds(327, 225, 117, 29);
 		contentPane.add(btnNewButton);
+	}
+	
+	public void showmain() {
+		this.setVisible(false);
+		MainGUI main = new MainGUI();
+		main.show();
 	}
 }

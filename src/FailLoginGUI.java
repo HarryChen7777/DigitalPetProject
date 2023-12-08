@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -23,6 +24,7 @@ public class FailLoginGUI extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.ORANGE);
 		
 		JLabel lblNewLabel = new JLabel("The Password you enter is incorrect!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -37,12 +39,17 @@ public class FailLoginGUI extends JFrame {
 		JButton btnNewButton = new JButton("BACK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
-				LoginGUI loginpage = new LoginGUI();
-				loginpage.show();
+				showloginpage();
 			}
 		});
 		btnNewButton.setBounds(162, 193, 117, 29);
 		contentPane.add(btnNewButton);
+	}
+	
+	public void showloginpage() {
+		this.setVisible(false);
+		LoginGUI loginpage = new LoginGUI();
+		loginpage.show();
 	}
 
 }

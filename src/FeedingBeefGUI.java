@@ -42,8 +42,7 @@ public class FeedingBeefGUI extends JFrame {
 		JButton btnBack = new JButton("BACK");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainGUI mgui = new MainGUI();
-				mgui.show();
+				showmain();
 			}
 		});
 		btnBack.setForeground(Color.BLACK);
@@ -85,6 +84,12 @@ public class FeedingBeefGUI extends JFrame {
 		lblNewLabel_4 = new JLabel("Hunger Meter decreased by 20");
 		lblNewLabel_4.setBounds(133, 167, 242, 16);
 		contentPane.add(lblNewLabel_4);
+	}
+	
+	public void showmain() {
+		this.setVisible(false);
+		MainGUI mgui = new MainGUI();
+		mgui.show();	
 	}
 
 }

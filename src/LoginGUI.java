@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -26,6 +27,8 @@ public class LoginGUI extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.ORANGE);
+		
 		
 		JLabel lblNewLabel = new JLabel("Welcome !!!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -68,24 +71,29 @@ public class LoginGUI extends JFrame {
 				String username = textField.getText();
 				String pwd = textField_1.getText();
 
-				System.out.println(username);
-				System.out.println(pwd);
+//				System.out.println(username);
+//				System.out.println(pwd);
 				Integer result = a.login(username, pwd);
-				if (result == 1) {
-					GenderGUI create = new GenderGUI();
-					create.show();
-				} else if (result == 2) {					
-					WelcomeGUI welcomepage = new WelcomeGUI();
-					welcomepage.show();		
-				} else if (result == 3) {
-					FailLoginGUI faillogin = new FailLoginGUI();
-					faillogin.show();	
-				}
+				a.setAccount(username);
+				a.setPassword(pwd);
+				showsteps(result);
 			}
 		});
 		btnNewButton.setBounds(159, 182, 117, 29);
 		contentPane.add(btnNewButton);
-		
-		
+	}
+	
+	public void showsteps(int result) {
+		this.setVisible(false);
+		if (result == 1) {
+			GenderGUI create = new GenderGUI();
+			create.show();
+		} else if (result == 2) {					
+			WelcomeGUI welcomepage = new WelcomeGUI();
+			welcomepage.show();		
+		} else if (result == 3) {
+			FailLoginGUI faillogin = new FailLoginGUI();
+			faillogin.show();	
+		}
 	}
 }

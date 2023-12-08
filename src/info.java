@@ -12,10 +12,10 @@ public class info {
 	    		 genderlst.add(false);
 	    	}
 	    	namelst.add(name);
-	    	if(account.firsttime.get(account.accountnumber)==true) {
-	        	findex.findexlst.add(100);
-	        	hindex.hindexlst.add(100);
-	        }
+//	    	if(account.firsttime.get(account.accountnumber)==true) {
+//	        	findex.findexlst.add(100);
+//	        	hindex.hindexlst.add(100);
+//	        }
 	    }
 	  //选性别，名字加arrayList，设置好账号在ArrayList里面的index, 用accounr.
 }

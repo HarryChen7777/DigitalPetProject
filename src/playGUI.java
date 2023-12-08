@@ -9,14 +9,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class playGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtFeeding;
-	private JTextField hungermeter;
-	private JTextField happymeter;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JTextField textField;
+	private JTextField textField_1;
 
 
 
@@ -45,50 +48,62 @@ public class playGUI extends JFrame {
 		contentPane.add(btnBack);
 		
 		JButton btnfetch = new JButton("Play Fetch");
-		btnfetch.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		btnfetch.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		btnfetch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				fetchGUI playfetch = new fetchGUI();
-				playfetch.show();
+				showfetch();
 			}
 		});
-		btnfetch.setBounds(142, 81, 164, 52);
+		btnfetch.setBounds(160, 75, 125, 47);
 		contentPane.add(btnfetch);
 		
 		JButton btnbone = new JButton("Play Bone\n");
 		btnbone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boneGUI playbones = new boneGUI();
-				playbones.show();
+				showbones();
 			}
 		});
 		btnbone.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnbone.setBounds(142, 145, 173, 58);
+		btnbone.setBounds(160, 144, 127, 47);
 		contentPane.add(btnbone);
 		
-		txtFeeding = new JTextField();
-		txtFeeding.setBackground(Color.ORANGE);
-		txtFeeding.setFont(new Font("Libian SC", Font.PLAIN, 30));
-		txtFeeding.setText("Playing\n");
-		txtFeeding.setBounds(16, 16, 117, 35);
-		contentPane.add(txtFeeding);
-		txtFeeding.setColumns(10);
+		lblNewLabel = new JLabel("PLAYING");
+		lblNewLabel.setFont(new Font("Libian TC", Font.PLAIN, 30));
+		lblNewLabel.setBounds(26, 10, 125, 29);
+		contentPane.add(lblNewLabel);
 		
-		hungermeter = new JTextField();
-		hungermeter.setBackground(Color.ORANGE);
-		hungermeter.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		hungermeter.setText("Hunger meter    /100\n\n");
-		hungermeter.setBounds(314, 6, 130, 26);
-		contentPane.add(hungermeter);
-		hungermeter.setColumns(10);
+		lblNewLabel_3 = new JLabel("Hunger ");
+		lblNewLabel_3.setToolTipText("");
+		lblNewLabel_3.setBounds(289, 22, 61, 16);
+		contentPane.add(lblNewLabel_3);
 		
-		happymeter = new JTextField();
-		happymeter.setBackground(Color.ORANGE);
-		happymeter.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
-		happymeter.setText("Happy meter    /100");
-		happymeter.setBounds(314, 27, 130, 26);
-		contentPane.add(happymeter);
-		happymeter.setColumns(10);
+		lblNewLabel_4 = new JLabel("Happy");
+		lblNewLabel_4.setBounds(289, 50, 61, 16);
+		contentPane.add(lblNewLabel_4);
+		
+		textField = new JTextField();
+		textField.setText("100 / 100");
+		textField.setBounds(354, 20, 78, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setText("100 / 100");
+		textField_1.setBounds(354, 45, 78, 26);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+	}
+	
+	public void showfetch() {
+		this.setVisible(false);
+		fetchGUI playfetch = new fetchGUI();
+		playfetch.show();
+	}
+	
+	public void showbones() {
+		this.setVisible(false);
+		boneGUI playbones = new boneGUI();
+		playbones.show();
 	}
 
 }

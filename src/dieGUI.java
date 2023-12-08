@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -23,11 +24,14 @@ public class dieGUI extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(Color.ORANGE);
 		
 		JLabel lblNewLabel = new JLabel("Your Pet Died");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		lblNewLabel.setBounds(118, 29, 264, 93);
 		contentPane.add(lblNewLabel);
+		
+		
 		
 		JButton btnNewButton = new JButton("EXIT GAME");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -35,8 +39,19 @@ public class dieGUI extends JFrame {
 				System.exit(ABORT);		
 			}
 		});
-		btnNewButton.setBounds(157, 161, 117, 29);
+		btnNewButton.setBounds(66, 163, 117, 29);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("PLAY AGAIN");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GenderGUI gendergui = new GenderGUI();
+				gendergui.show();
+			}
+		});
+		btnNewButton_1.setBounds(251, 163, 117, 29);
+		contentPane.add(btnNewButton_1);
 	}
 
 }
+
