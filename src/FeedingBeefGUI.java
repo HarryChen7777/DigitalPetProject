@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -75,13 +78,25 @@ public class FeedingBeefGUI extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
+		TimerTask task = new TimerTask() {
+			public void run() {
+				textField.setText(index.health + " / 100");
+				textField_1.setText(index.happiness + " / 100");
+				System.out.println(index.health);
+				System.out.println(index.happiness);
+				System.out.println("Trying to rerender on: " + new Date() + "\n");
+
+			}
+		};
+		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
+		
 		lblNewLabel_3 = new JLabel("You feed your pet with beef");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		lblNewLabel_3.setBounds(87, 104, 288, 29);
 		contentPane.add(lblNewLabel_3);
 		
-		lblNewLabel_4 = new JLabel("Hunger Meter decreased by 20");
+		lblNewLabel_4 = new JLabel("Hunger Meter increased by 20");
 		lblNewLabel_4.setBounds(133, 167, 242, 16);
 		contentPane.add(lblNewLabel_4);
 	}

@@ -6,6 +6,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -82,25 +85,39 @@ public class playGUI extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		textField = new JTextField();
-		textField.setText("100 / 100");
+		textField.setText(index.health + " / 100");
 		textField.setBounds(354, 20, 78, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setText("100 / 100");
+		textField_1.setText(index.happiness + " / 100");
 		textField_1.setBounds(354, 45, 78, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		TimerTask task = new TimerTask() {
+			public void run() {
+				textField.setText(index.health + " / 100");
+				textField_1.setText(index.happiness + " / 100");
+				System.out.println(index.health);
+				System.out.println(index.happiness);
+				System.out.println("Trying to rerender on: " + new Date() + "\n");
+
+			}
+		};
+		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
 	}
 	
 	public void showfetch() {
+		index.applyChange(0, 15);
 		this.setVisible(false);
 		fetchGUI playfetch = new fetchGUI();
 		playfetch.show();
 	}
 	
 	public void showbones() {
+		index.applyChange(0, 30);
 		this.setVisible(false);
 		boneGUI playbones = new boneGUI();
 		playbones.show();

@@ -74,8 +74,10 @@ public class LoginGUI extends JFrame {
 //				System.out.println(username);
 //				System.out.println(pwd);
 				Integer result = a.login(username, pwd);
+				
 				a.setAccount(username);
 				a.setPassword(pwd);
+				
 				showsteps(result);
 			}
 		});

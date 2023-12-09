@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
 
@@ -90,6 +93,18 @@ public class FeedingGUI extends JFrame {
 		textField_1.setBounds(354, 45, 78, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		TimerTask task = new TimerTask() {
+			public void run() {
+				textField.setText(index.health + " / 100");
+				textField_1.setText(index.happiness + " / 100");
+				System.out.println(index.health);
+				System.out.println(index.happiness);
+				System.out.println("Trying to rerender on: " + new Date() + "\n");
+
+			}
+		};
+		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
 	}
 	
 	public void showmain() {
@@ -99,12 +114,14 @@ public class FeedingGUI extends JFrame {
 	}
 	
 	public void showfeedingvegetable() {
+		index.applyChange(15, 0);
 		this.setVisible(false);
 		vegetableGUI feedingvegetable = new vegetableGUI();
 		feedingvegetable.show();
 	}
 	
 	public void showfeedingbeef() {
+		index.applyChange(20, 0);
 		this.setVisible(false);
 		FeedingBeefGUI feedingbeefmeat = new FeedingBeefGUI();
 		feedingbeefmeat.show();	

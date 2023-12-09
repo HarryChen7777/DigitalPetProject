@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -71,16 +74,29 @@ public class WalkingGUI extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		textField = new JTextField();
-		textField.setText("100 / 100");
+		textField.setText(index.health + " / 100");
 		textField.setBounds(354, 20, 78, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setText("100 / 100");
+		textField_1.setText(index.happiness + " / 100");
 		textField_1.setBounds(354, 45, 78, 26);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		TimerTask task = new TimerTask() {
+			public void run() {
+				textField.setText(index.health + " / 100");
+				textField_1.setText(index.happiness + " / 100");
+				System.out.println(index.health);
+				System.out.println(index.happiness);
+				System.out.println("Trying to rerender on: " + new Date() + "\n");
+	
+			}
+		};
+		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
+
 	}
 	
 	public void showmain() {

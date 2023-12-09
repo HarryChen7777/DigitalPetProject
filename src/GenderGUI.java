@@ -57,16 +57,16 @@ public class GenderGUI extends JFrame {
 		JButton btnNewButton = new JButton("CONTINUE");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				showmain();
+				showinstruction();
 			}
 		});
 		btnNewButton.setBounds(327, 225, 117, 29);
 		contentPane.add(btnNewButton);
 	}
 	
-	public void showmain() {
+	public void showinstruction() {
 		this.setVisible(false);
-		MainGUI main = new MainGUI();
-		main.show();
+		instructionGUI instruction = new instructionGUI();
+		instruction.show();
 	}
 }
