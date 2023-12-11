@@ -36,11 +36,13 @@ public class index {
 		happiness = Fun;
 		TimerTask task = new TimerTask() {
 			public void run() {
+				if(death) {
+					return;
+				}
 				// if health or happiness is 0, declare death
 				if (health == 0 || happiness == 0) {
 					death = true;
 					dieGUI diegui = new dieGUI();
-					System.exit(0);
 					diegui.show();
 					return;
 				}
