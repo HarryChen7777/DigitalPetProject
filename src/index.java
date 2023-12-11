@@ -36,19 +36,24 @@ public class index {
 		happiness = Fun;
 		TimerTask task = new TimerTask() {
 			public void run() {
-				// health and happiness decrease by 1 every second
-				happiness -= 1;
-				health -= 1;
 				// if health or happiness is 0, declare death
 				if (health == 0 || happiness == 0) {
 					death = true;
+					dieGUI diegui = new dieGUI();
+					System.exit(0);
+					diegui.show();
+					return;
 				}
+				// health and happiness decrease by 1 every second
+				happiness -= 1;
+				health -= 1;
+
 
 				System.out.println("Task performed on: " + new Date() + "\n" +
 						"Thread's name: " + Thread.currentThread().getName());
 			}
 		};
-		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
+		new Timer("Timer").schedule(task, 0, 100); // in milliseconds
 	}
 
 	private static long lastExecutionTime = 0;

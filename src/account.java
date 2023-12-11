@@ -108,7 +108,7 @@ public class account {
 			username.add(accountentered);
 
 			// sync with account.txt
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("account.txt"))) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("account.txt", true))) {
 				writer.write(accountentered);
 				writer.newLine();
 			} catch (IOException e) {
@@ -130,7 +130,7 @@ public class account {
 		password.add(passwordentered); // add the new password to password
 
 		// sync with password.txt
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter("password.txt"))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("password.txt", true))) {
 			writer.write(passwordentered);
 			writer.newLine();
 		} catch (IOException e) {
@@ -170,7 +170,7 @@ public class account {
 	public void setInfo(boolean gender, String name) {
 		// Sync with gender.txt
 		if (gender == true) {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt"))) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt", true))) {
 				writer.write("male");
 				writer.newLine();
 			} catch (IOException e) {
@@ -178,7 +178,7 @@ public class account {
 			}
 			genderlst.add(true);
 		} else {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt"))) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt", true))) {
 				writer.write("female");
 				writer.newLine();
 			} catch (IOException e) {
@@ -188,7 +188,7 @@ public class account {
 		}
 
 		// Sync with name.txt
-		try (BufferedWriter n = new BufferedWriter(new FileWriter("name.txt"))) {
+		try (BufferedWriter n = new BufferedWriter(new FileWriter("name.txt", true))) {
 			n.write(name);
 			n.newLine();
 		} catch (IOException e) {
@@ -276,6 +276,5 @@ public class account {
 		System.out.println(a.login("kevin", "314159"));
 		a.setInfo(true, "kevin's dog");
 		// a.saveToFile();
-		
 	}
 }

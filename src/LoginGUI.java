@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -75,8 +74,9 @@ public class LoginGUI extends JFrame {
 //				System.out.println(pwd);
 				Integer result = a.login(username, pwd);
 				
-				a.setAccount(username);
-				a.setPassword(pwd);
+				// No need. will set account and password in login method
+				// a.setAccount(username);
+				// a.setPassword(pwd);
 				
 				showsteps(result);
 			}
@@ -87,13 +87,13 @@ public class LoginGUI extends JFrame {
 	
 	public void showsteps(int result) {
 		this.setVisible(false);
-		if (result == 1) {
+		if (result == -2) {
 			GenderGUI create = new GenderGUI();
 			create.show();
-		} else if (result == 2) {					
+		} else if (result >= 0) {					
 			WelcomeGUI welcomepage = new WelcomeGUI();
 			welcomepage.show();		
-		} else if (result == 3) {
+		} else if (result == -1) {
 			FailLoginGUI faillogin = new FailLoginGUI();
 			faillogin.show();	
 		}
