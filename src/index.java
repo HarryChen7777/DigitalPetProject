@@ -55,15 +55,14 @@ public class index {
 						"Thread's name: " + Thread.currentThread().getName());
 			}
 		};
-		new Timer("Timer").schedule(task, 0, 100); // in milliseconds
+		new Timer("Timer").schedule(task, 0, 1000); // in milliseconds
 	}
 
 	private static long lastExecutionTime = 0;
 
-	public synchronized static void applyChange(int addhunger, int addmood) { ///////// static void applyChange
+	public synchronized static void applyChange(int addhunger, int addmood) { 
 		long currentTime = System.currentTimeMillis();
 
-		// 如果距离上次执行时间超过五秒钟，则执行函数
 		if (currentTime - lastExecutionTime > 5000) {
 			System.out.println("Change applied.");
 			lastExecutionTime = currentTime;
@@ -74,7 +73,7 @@ public class index {
 				health = 100;
 			}
 			if (happiness + addmood < 100) {
-				happiness = happiness + addmood; ///// happiness + addhunger -> happiness + addmood
+				happiness = happiness + addmood; 
 			} else {
 				happiness = 100;
 			}

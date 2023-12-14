@@ -39,18 +39,9 @@ public class dieGUI extends JFrame {
 				System.exit(ABORT);		
 			}
 		});
-		btnNewButton.setBounds(66, 163, 117, 29);
+		btnNewButton.setBounds(164, 163, 117, 29);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("PLAY AGAIN");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GenderGUI gendergui = new GenderGUI();
-				gendergui.show();
-			}
-		});
-		btnNewButton_1.setBounds(251, 163, 117, 29);
-		contentPane.add(btnNewButton_1);
 	}
 
 }

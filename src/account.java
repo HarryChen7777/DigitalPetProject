@@ -71,26 +71,6 @@ public class account {
 		} catch (IOException e) {
 			System.err.println("Error reading from the file: " + e.getMessage());
 		}
-		try (BufferedReader reader = new BufferedReader(new FileReader("gender.txt"))) {
-			String sex;
-			while ((sex = reader.readLine()) != null) {
-				if (sex.equals("male")) {
-					genderlst.add(true);
-				} else if (sex.equals("female")) {
-					genderlst.add(false);
-				}
-			}
-		} catch (IOException e) {
-			System.err.println("Error reading from the file: " + e.getMessage());
-		}
-		try (BufferedReader reader = new BufferedReader(new FileReader("gender.txt"))) {
-			String n;
-			while ((n = reader.readLine()) != null) {
-				namelst.add(n);
-			}
-		} catch (IOException e) {
-			System.err.println("Error reading from the file: " + e.getMessage());
-		}
 
 	}
 	/*
@@ -167,54 +147,7 @@ public class account {
 		}
 	}
 
-	public void setInfo(boolean gender, String name) {
-		// Sync with gender.txt
-		if (gender == true) {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt", true))) {
-				writer.write("male");
-				writer.newLine();
-			} catch (IOException e) {
-				System.err.println("Error writing to the file: " + e.getMessage());
-			}
-			genderlst.add(true);
-		} else {
-			try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt", true))) {
-				writer.write("female");
-				writer.newLine();
-			} catch (IOException e) {
-				System.err.println("Error writing to the file: " + e.getMessage());
-			}
-			genderlst.add(false);
-		}
-
-		// Sync with name.txt
-		try (BufferedWriter n = new BufferedWriter(new FileWriter("name.txt", true))) {
-			n.write(name);
-			n.newLine();
-		} catch (IOException e) {
-			System.err.println("Error writing to the file: " + e.getMessage());
-		}
-		namelst.add(name);
-
-	}
-
 	public static void saveToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("gender.txt"))) {
-            for (var c : genderlst) {
-				if (c == null) {
-                    continue;
-                }
-                if (c == true) {
-                    writer.write("male");
-                    writer.newLine();
-                } else if (c == false) {
-                    writer.write("female");
-                    writer.newLine();
-                } 
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading from the file: " + e.getMessage());
-        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("name.txt"))) {
             for (var c : namelst) {
                 if (c == null) {
@@ -269,12 +202,5 @@ public class account {
 
 	public static void main(String[] args) {
 		account a = new account();
-		System.out.println(a.login("linyi", "123456"));
-		a.setInfo(true, "linyi's dog");
-		// System.out.println(a.login("linyi", "123456"));
-		account.death();
-		System.out.println(a.login("kevin", "314159"));
-		a.setInfo(true, "kevin's dog");
-		// a.saveToFile();
 	}
 }
